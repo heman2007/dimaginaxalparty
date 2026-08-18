@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dimagi Naxal Party — revolutionary newsprint design system. All colors HSL. */
+
+@layer base {
+  :root {
+    --background: 42 38% 94%;
+    --foreground: 214 45% 14%;
+
+    --card: 40 40% 97%;
+    --card-foreground: 214 45% 14%;
+
+    --popover: 40 40% 97%;
+    --popover-foreground: 214 45% 14%;
+
+    --primary: 214 45% 14%;
+    --primary-foreground: 42 45% 96%;
+
+    --secondary: 42 30% 88%;
+    --secondary-foreground: 214 45% 14%;
+
+    --muted: 42 22% 86%;
+    --muted-foreground: 214 14% 38%;
+
+    --accent: 12 82% 50%;
+    --accent-foreground: 42 45% 96%;
+
+    --saffron: 28 92% 52%;
+    --khadi: 42 45% 96%;
+    --forest: 137 38% 34%;
+
+    --destructive: 4 78% 44%;
+    --destructive-foreground: 42 45% 96%;
+
+    --border: 214 25% 22%;
+    --input: 214 25% 22%;
+    --ring: 12 82% 50%;
+
+    --radius: 0.125rem;
+
+    --shadow-brut: 6px 6px 0 hsl(var(--primary));
+    --shadow-brut-accent: 6px 6px 0 hsl(var(--accent));
+    --gradient-tricolor: linear-gradient(
+      90deg,
+      hsl(var(--saffron)) 0 33.33%,
+      hsl(var(--khadi)) 33.33% 66.66%,
+      hsl(var(--forest)) 66.66% 100%
+    );
+
+    --sidebar-background: 42 38% 94%;
+    --sidebar-foreground: 214 45% 14%;
+    --sidebar-primary: 214 45% 14%;
+    --sidebar-primary-foreground: 42 45% 96%;
+    --sidebar-accent: 42 30% 88%;
+    --sidebar-accent-foreground: 214 45% 14%;
+    --sidebar-border: 214 25% 22%;
+    --sidebar-ring: 12 82% 50%;
+  }
+
+  .dark {
+    --background: 214 45% 8%;
+    --foreground: 42 38% 94%;
+    --card: 214 40% 12%;
+    --card-foreground: 42 38% 94%;
+    --popover: 214 40% 12%;
+    --popover-foreground: 42 38% 94%;
+    --primary: 42 38% 94%;
+    --primary-foreground: 214 45% 10%;
+    --secondary: 214 30% 18%;
+    --secondary-foreground: 42 38% 94%;
+    --muted: 214 30% 18%;
+    --muted-foreground: 42 15% 70%;
+    --accent: 12 82% 54%;
+    --accent-foreground: 42 45% 96%;
+    --destructive: 4 78% 48%;
+    --destructive-foreground: 42 45% 96%;
+    --border: 42 20% 80%;
+    --input: 42 20% 80%;
+    --ring: 12 82% 54%;
+    --shadow-brut: 6px 6px 0 hsl(var(--foreground));
+    --shadow-brut-accent: 6px 6px 0 hsl(var(--accent));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    background-image: radial-gradient(hsl(var(--primary) / 0.06) 1px, transparent 1px);
+    background-size: 4px 4px;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Anton', 'Arial Narrow', sans-serif;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    line-height: 0.94;
+  }
+}
+
+@layer components {
+  .tricolor-rule {
+    background: var(--gradient-tricolor);
+  }
+
+  .brut {
+    box-shadow: var(--shadow-brut);
+    border: 2px solid hsl(var(--primary));
+  }
+
+  .brut-accent {
+    box-shadow: var(--shadow-brut-accent);
+    border: 2px solid hsl(var(--primary));
+  }
+
+  .stamp {
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 26s linear infinite;
+}
+
+@keyframes caret-blink {
+  0%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.animate-caret { animation: caret-blink 0.8s steps(1) infinite; }
+
+@keyframes loadbar {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.animate-loadbar { animation: loadbar 3.2s cubic-bezier(0.65, 0, 0.35, 1) forwards; }
+
+@keyframes tricolor-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.animate-tricolor-grow { animation: tricolor-grow 0.9s ease-out both; }
+
+@keyframes curtain-up {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100%); }
+}
+.animate-curtain-up { animation: curtain-up 0.7s cubic-bezier(0.76, 0, 0.24, 1) forwards; }
+
+
+@keyframes dnp-fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: dnp-fade-up 0.5s ease-out both; }
+
+@keyframes word-scroll-up {
+  0% { transform: translateY(110%); opacity: 0; }
+  15% { transform: translateY(0); opacity: 1; }
+  80% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-110%); opacity: 0; }
+}
+.animate-word-scroll-up { animation: word-scroll-up 0.62s cubic-bezier(0.33, 1, 0.68, 1) both; }
