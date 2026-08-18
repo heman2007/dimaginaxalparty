@@ -18,7 +18,7 @@ const yesNo = {
   no: ["Propaganda", "Hate", "Bias", "Fake news", "Blind faith", "Godi media"],
 };
 
-const IG = "https://www.instagram.com/dimaginaxalpartyy";
+const IG = "https://www.instagram.com/dimaginaxalpartyy_india";
 
 const Index = () => {
   const [loading, setLoading] = useState(true);
